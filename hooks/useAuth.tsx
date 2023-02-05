@@ -4,10 +4,15 @@ import {useRouter} from "next/router";
 import axios from "axios";
 
 interface User {
-  id: string;
-  name: string;
-  email: string;
+  "username": string,
+  "firstName": string,
+  "lastName": string,
+  "fullName": string,
+  "email": string,
+  "iat": number,
+  "exp": number
 }
+
 
 const getTokenFromCookie = (): string | null => {
   const token = document.cookie
