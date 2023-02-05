@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import {useState, useEffect} from "react";
+import {useRouter} from "next/router";
 import axios from "axios";
 
 interface User {
@@ -13,12 +13,26 @@ const getTokenFromCookie = (): string | null => {
   const token = document.cookie
     .split(";")
     .find((c) => c.trim().startsWith("token="));
-  if (!token) return null;
+
+  if (!token) {
+    console.log('No token found in COOKIE!');
+    return null;
+  }
+
+  console.log('TOKEN FOUND IN COOKIE: ', token.split("=")[1]);
   return token.split("=")[1];
 };
 
 const getTokenFromLocalStorage = (): string | null => {
-  return localStorage.getItem("token");
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    console.log('No token found in LOCAL STORAGE!');
+    return null;
+  }
+
+  console.log('TOKEN FOUND IN LOCAL STORAGE: ', token);
+  return token;
 };
 
 // const handleLogin = (token: string) => {
@@ -79,7 +93,7 @@ const useAuth = () => {
   };
 
   // export user loading and handleLogin
-  return { user, loading, handleLogin };
+  return {user, loading, handleLogin};
 };
 
 export default useAuth;
