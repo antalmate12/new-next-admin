@@ -1,0 +1,21 @@
+.LoginParent {
+  height: 100vh;
+  width: 100%;
+
+  display: grid;
+  place-items: center;
+
+  form {
+    display: grid;
+    gap: 1rem;
+    max-width: min(90%, 400px);
+    width: 100%;
+
+    button {
+      max-width: 200px;
+      width: 100%;
+      margin-inline: auto;
+      margin-top: .5rem;
+    }
+  }
+}
