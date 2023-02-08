@@ -1,11 +1,12 @@
-import { useState } from "react";
+import React, {useState} from "react";
 import useAuth from "@/hooks/useAuth";
+import {Button, Container, TextField} from "@mui/material";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const { handleLogin } = useAuth();
+  const {handleLogin} = useAuth();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -23,22 +24,19 @@ const LoginPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {error && <pre>{JSON.stringify(error)}</pre>}
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        placeholder="Username"
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-      />
-      <button type="submit">Login</button>
-    </form>
+    <Container>
+      <form onSubmit={handleSubmit}>
+        {error && <pre>{JSON.stringify(error)}</pre>}
+
+        <TextField type={"email"} value={username} onChange={(e) => setUsername(e.target.value)} id="email"
+                   label="E-mail" variant="filled"/>
+
+        <TextField type={"password"} value={password} onChange={(e) => setPassword(e.target.value)} id="password"
+                   label="Password" variant="filled"/>
+
+        <Button type="submit" variant={"contained"}>Login</Button>
+      </form>
+    </Container>
   );
 };
 
