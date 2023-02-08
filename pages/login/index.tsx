@@ -29,7 +29,7 @@ const LoginPage = () => {
   return (
     <>
       <Head>
-        <title>New-Admin Login</title>
+        <title>Next-Admin Login</title>
       </Head>
 
       <div className={styles.LoginParent}>

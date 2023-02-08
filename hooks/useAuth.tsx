@@ -3,7 +3,7 @@ import {useState, useEffect} from "react";
 import {useRouter} from "next/router";
 import axios from "axios";
 
-interface User {
+export interface User {
   "username": string,
   "firstName": string,
   "lastName": string,
