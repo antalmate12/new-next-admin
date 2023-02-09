@@ -11,7 +11,7 @@ import { User } from '@/hooks/useAuth'
 // TODO: Meg kellene oldani, hogy ha már idáig eljutottunk,
 //  akkor biztosan legyen user, és ne is kelljen várni arra,
 //  hogy betöltsön "?."-ekkel, hanem addig ne jelenjen meg a MainLayout
-const Header = ({ user }: { user: User | null }) => {
+const Header = ({ user }: { user: User }) => {
   return (
     <header className={styles.Header}>
       <Box sx={{ flexGrow: 1 }}>

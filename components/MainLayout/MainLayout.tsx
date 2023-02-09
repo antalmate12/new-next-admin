@@ -6,12 +6,14 @@ import useAuth from '@/hooks/useAuth'
 const MainLayout = ({ children }: { children: ReactNode }) => {
   const { user } = useAuth()
 
-  return (
-    <div className={styles.MainLayoutWrapper}>
-      <Header user={user} />
-      <main>{children}</main>
-    </div>
-  )
+  if (user) {
+    return (
+      <div className={styles.MainLayoutWrapper}>
+        <Header user={user} />
+        <main>{children}</main>
+      </div>
+    )
+  } else return <>{'loading'}</>
 }
 
 export default MainLayout
